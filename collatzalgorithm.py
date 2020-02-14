@@ -8,4 +8,3 @@ while number != 1:
         number = number//2
         
     print(number)
-    
