@@ -7,7 +7,6 @@ while factor < number:
        
     factor +=1
 
-
 if sum == number:
     print("This number is a perfect number!")
 elif sum < number:
