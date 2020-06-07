@@ -12,10 +12,9 @@ class Cart(object):
         """Add a list to a cart."""
         for element in item:
             self.item_list.append(element.lower())
+            self.__number_of_item_in_cart()
 
         print("Added {} to cart".format(item))
-        for element in item:
-            self.__number_of_item_in_cart()
 
     def remove_from_cart(self, item=''):
         """Remove item from a cart"""
@@ -27,10 +26,10 @@ class Cart(object):
             print("{} not in cart".format(item))
 
     def __number_of_item_in_cart(self):
-        self.number_of_items += 1
+        self.number_of_items = len(self.item_list)
 
     def __decrease_item(self):
-        self.number_of_items -= 1
+        self.number_of_items = len(self.item_list)
 
     def __str__(self):
         return "Items in your cart {}".format(self.item_list)
