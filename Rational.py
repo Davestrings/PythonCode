@@ -30,7 +30,7 @@ def lcm(num_1, num_2):
 
 
 class Rational(object):
-    def __init__(self, numer, denomer):
+    def __init__(self, numer, denomer=1):
         self.numerator = numer
         self.denominator = denomer
 
@@ -56,6 +56,17 @@ class Rational(object):
                         (other.numerator * the_lcm / other.denominator)
         return Rational(int(numerator_sum), the_lcm)
 
+    def reduce_rational(self):
+        """Return the reduced fractional value as a Rational """
+        the_gcd = gcd(self.numerator, self.denominator)
+        return Rational(self.numerator // the_gcd, self.denominator // the_gcd)
+
+    def __eq__(self, param_Rational):
+        reduce_self = self.reduce_rational()
+        reduced_param = param_Rational.reduce_rational()
+        return (reduce_self.numerator == reduced_param.numerator) and \
+               (reduce_self.denominator == reduced_param.denominator)
+
 
 def main():
     one_fifth = Rational(1, 5)
@@ -67,4 +78,3 @@ def main():
 
 
 main()
-
