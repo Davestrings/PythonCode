@@ -41,12 +41,24 @@ class Rational(object):
         return self.__str__()
 
     def __add__(self, other):
-        """ Add two rational numbers """
-        the_lcm = lcm(self.denominator, other.denominator)
+        """ Add two rational numbers. Allows int as a parameter """
+        if type(other) == int:
+            other = Rational(other)
+        if type(other) == Rational:
+            # find a common denominator
+            the_lcm = lcm(self.denominator, other.denominator)
+            #  multiply each by the lcm, then add
+            numerator_sum = (self.numerator * the_lcm / self.denominator) + \
+                            (other.numerator * the_lcm / other.denominator)
+            return Rational(int(numerator_sum), the_lcm)
+        else:
+            print('wrong type')
+            raise TypeError
 
-        numerator_sum = (self.numerator * the_lcm / self.denominator) + \
-                        (other.numerator * the_lcm / other.denominator)
-        return Rational(int(numerator_sum), the_lcm)
+    def __radd__(self, param):
+        """ Add two Rationals (reversed)"""
+        # mapping is reversed: if "1 + x", x maps to self, and 1 maps to f
+        return self.__add__(param)
 
     def __sub__(self, other):
         """Subtract two rational number"""
@@ -76,6 +88,10 @@ def main():
     print(one_fifth.__add__(two_seventh))
     print(one_fifth.__sub__(two_seventh))
     print(one_fifth.__eq__(two_seventh))
+    print('\n')
+    print(one_fifth + two_seventh)
+    print(one_fifth + 5)
+    print(5 + one_fifth)
 
 
 main()
