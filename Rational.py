@@ -75,6 +75,7 @@ def main():
     print(two_seventh)
     print(one_fifth.__add__(two_seventh))
     print(one_fifth.__sub__(two_seventh))
+    print(one_fifth.__eq__(two_seventh))
 
 
 main()
