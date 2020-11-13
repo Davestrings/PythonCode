@@ -1,0 +1,5 @@
+first line
+second line
+This was written to test the efficiency of the right method
+Let’s put these concepts together into a simple line-reversal program
+The line is stripped (to remove the carriage return), and then

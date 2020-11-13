@@ -1,0 +1,36 @@
+# my_var = int(input("Enter a number"))
+# if my_var % 2:
+#     if my_var**3 !=27:
+#         my_var = my_var + 4
+#     else:
+#         my_var /= 1.5
+# else:
+#     if my_var <= 10:
+#         my_var *= 2
+#     else:
+#         my_var -= 2
+# print(my_var)
+var = 'alphabetical'
+print(var[2:len(var):3], end=' ')
+my_int = int(input("Enter a number: "))
+# for i in range(100):
+#     if i**2 == my_int:
+#         print("{:<5d} is a perfect square ".format(my_int))
+# else:
+#     print("{:<5d} is not a perfect square".format(my_int))
+i = int(input("Suggest a perfect square."))
+while i <= 100:
+    if i ** 2 == my_int:
+        print("{:<5d} is a perfect square ".format(my_int))
+        break
+    else:
+        i = int(input("Enter a new number or enter a number > 100 to quit"))
+
+
+
+
+
+param_float = int(input("enter a number to convert: "))
+def celcius_to_Fahrenheit(param_float):
+    return param_float * 1.8 + 32.0
+
